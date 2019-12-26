@@ -1,0 +1,85 @@
+server:
+  port: 8085
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_center
+    hikari:
+      username: root
+      password: 123456
+      # >= 6.x com.mysql.cj.jdbc.Driver
+      # <= 5.x com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    # 服务名称用-划线，不要用_ 或者特殊字符
+    name: user-center
+  cloud:
+    nacos:
+      discovery:
+        # 指定nacos server地址
+        server-addr: 127.0.0.1:8848
+        # 指定namespace，用于不同的环境隔离
+        namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
+        # 指定集群名称
+        cluster-name: BJ
+        metadata:
+          # 自己这个实例的版本
+          version: v1
+          # 允许调用的提供者版本
+          target-version: v1
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        input:
+          destination: add-bonus
+          # 如果用的是RocketMQ，必须设置
+          # 如果是其他MQ，可以留空
+          group: consumer-group
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      # 抽样率，默认是0.1=10%
+      probability: 1.0
+  # 默认选定profile的专用属性为dev,该配置主要用于区分开发与生产环境的配置，在spring-cloud-config配置管理中使用
+  profiles:
+    active: dev
+management:
+  # 表示激活所有的actuator端点
+  endpoints:
+    web:
+      exposure:
+        # * 表示激活所有端点，如果需要单独激活端点则直接写端点名称（例如：metrics,health）
+        include: '*'
+  # 设置显示health端点的详情
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.alibaba.nacos: error
+    org.springframework.cloud.sleuth: debug
+jwt:
+  secret: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbssssssssssssssssssssssssssssss
+  # 有效期，单位秒，默认2周
+  expire-time-in-second: 1209600
+mybatis:
+  configuration:
+    # 开启mybatis xml中数据库字段"_"映射到java对象中的"驼峰式"属性
+    map-underscore-to-camel-case: true
+
+
+# 连字符
+---
+# profile=dev的专用属性，也就是开发环境下的专用属性
+spring:
+  profiles: dev
+
+---
+# profile=prod的专用属性，也就是生产环境下的专用属性
+spring:
+  profiles: prod
+server:
+  port: 8088

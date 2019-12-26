@@ -1,0 +1,116 @@
+server:
+  port: 8091
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/content_center
+    hikari:
+      username: root
+      password: 123456
+      # >= 6.x com.mysql.cj.jdbc.Driver
+      # <= 5.x com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+      nacos:
+        discovery:
+          # 指定nacos server地址
+          server-addr: 127.0.0.1:8848
+          # 指定namespace，用于不同的环境隔离
+          namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
+          # 指定集群名称
+          cluster-name: BJ
+          metadata:
+            # 自己这个实例的版本
+            version: v1
+            # 允许调用的提供者版本
+            target-version: v1
+      sentinel:
+        filter:
+          # 打开/关闭掉对Spring MVC端点的保护（测试时设置false关闭）
+          enabled: true
+        transport:
+          # 指定sentinel控制台的地址
+          dashboard: localhost:8080
+      stream:
+        rocketmq:
+          binder:
+            name-server: 127.0.0.1:9876
+          bindings:
+            # 默认的Source类中的channel,作为生产者使用事务必须在这里配置group
+            output:
+              producer:
+                transactional: true
+                group: tx-add-bonus-group
+        bindings:
+          output:
+            # 用来指定topic
+            destination: add-bonus
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      # 抽样率，默认是0.1=10%
+      probability: 1.0
+## 细粒度配置针对user-center微服务调用的负载均衡规则（配置文件的方式）
+#user-center:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+ribbon:
+  eager-load:
+    # 开启饥饿加载
+    enabled: true
+    # 为哪些微服务开启饥饿加载，已","分割
+    clients: user-center
+logging:
+  level:
+    com.theone: debug
+    com.theone.contentcenter.feignclient.UserCenterFeignClient: debug
+    com.alibaba.nacos: error
+    org.springframework.cloud.sleuth: debug
+    com.theone.contentcenter.dao: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+# 设置feign的配置
+feign:
+  client:
+    config:
+#      # user-center feignclient的日志级别为full
+#      user-center:
+      # 全局配置
+      defalut:
+        loggerLevel: full
+  # httpclient连接池的配置方式
+  httpclient:
+    # 让feign使用apache的 httpclient做请求，代替默认的urlconnection
+    enabled: true
+    # 通过压测的方式让max-connections和max-connections-per-route达到最优
+    # feign的最大连接数
+    max-connections: 200
+    # feign单个路径的最大连接数
+    max-connections-per-route: 50
+  sentinel:
+    # 开启/关闭feign整合sentinel
+    enabled: true
+  # okhttp 链接池的配置方式
+#  okhttp:
+#    enabled: true
+resttemplate:
+  sentinel:
+    # 开启/关闭@SentinelRestTemplate注解（用于开发调试的时候设置false）
+    enabled: false
+jwt:
+  secret: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbssssssssssssssssssssssssssssss
+  # 有效期，单位秒，默认2周
+  expire-time-in-second: 1209600
+mybatis:
+  configuration:
+    # 开启mybatis xml中数据库字段"_"映射到java对象中的"驼峰式"属性
+    map-underscore-to-camel-case: true
+
+my:
+  configuration: test
