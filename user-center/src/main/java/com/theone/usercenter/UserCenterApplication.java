@@ -7,6 +7,9 @@ import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
+/**
+ * @author liuyu
+ */
 @MapperScan("com.theone.usercenter.dao")
 @ComponentScan(basePackages = {"com.theone"})
 @SpringBootApplication

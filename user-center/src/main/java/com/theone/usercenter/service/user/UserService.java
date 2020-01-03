@@ -1,5 +1,6 @@
 package com.theone.usercenter.service.user;
 
+import com.theone.apimodel.dto.UserDTO;
 import com.theone.usercenter.dao.bouns.BounsEventLogMapper;
 import com.theone.usercenter.dao.user.UserMapper;
 import com.theone.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
@@ -8,6 +9,7 @@ import com.theone.usercenter.domain.entity.bouns.BounsEventLog;
 import com.theone.usercenter.domain.entity.user.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,8 +26,13 @@ public class UserService {
     private final UserMapper userMapper;
     private final BounsEventLogMapper bounsEventLogMapper;
 
-    public User findById(Integer id){
-        return this.userMapper.selectByPrimaryKey(id);
+    public UserDTO findById(Integer id){
+        User user = this.userMapper.selectByPrimaryKey(id);
+        UserDTO userDTO = new UserDTO();
+        if (user != null) {
+            BeanUtils.copyProperties(user, userDTO);
+        }
+        return userDTO;
     }
 
     /**

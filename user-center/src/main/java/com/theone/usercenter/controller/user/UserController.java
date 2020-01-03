@@ -2,6 +2,8 @@ package com.theone.usercenter.controller.user;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
+import com.theone.apimodel.dto.UserDTO;
+import com.theone.apimodel.service.UserServiceApi;
 import com.theone.common.auth.CheckLogin;
 import com.theone.common.utils.JwtOperator;
 import com.theone.usercenter.domain.dto.user.JwtTokenRespDTO;
@@ -26,14 +28,15 @@ import java.util.Map;
 @RequestMapping("/users")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Slf4j
-public class UserController {
+public class UserController implements UserServiceApi {
     private final UserService userService;
     private final WxMaService wxMaService;
     private final JwtOperator jwtOperator;
 
+    @Override
     @GetMapping("/{id}")
     @CheckLogin
-    public User findById(@PathVariable Integer id) {
+    public UserDTO findById(@PathVariable Integer id) {
         log.info("我被请求了...");
         return this.userService.findById(id);
     }
