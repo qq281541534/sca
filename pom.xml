@@ -21,7 +21,10 @@
 	<modules>
 		<module>gateway</module>
 		<module>user-center</module>
-	</modules>
+		<module>content-center</module>
+		<module>api-model</module>
+        <module>commons</module>
+    </modules>
 
 	<dependencies>
 		<dependency>

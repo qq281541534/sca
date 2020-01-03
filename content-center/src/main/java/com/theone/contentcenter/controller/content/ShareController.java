@@ -1,11 +1,11 @@
 package com.theone.contentcenter.controller.content;
 
 import com.github.pagehelper.PageInfo;
-import com.theone.contentcenter.auth.CheckLogin;
+import com.theone.common.auth.CheckLogin;
+import com.theone.common.utils.JwtOperator;
 import com.theone.contentcenter.domain.dto.content.ShareDTO;
 import com.theone.contentcenter.domain.entity.content.Share;
 import com.theone.contentcenter.service.content.ShareService;
-import com.theone.contentcenter.util.JwtOperator;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;

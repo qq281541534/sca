@@ -1,6 +1,7 @@
 package com.theone.contentcenter.feignclient;
 
-import com.theone.contentcenter.domain.dto.user.UserDTO;
+import com.theone.apimodel.dto.UserDTO;
+import com.theone.apimodel.service.UserService;
 import com.theone.contentcenter.feignclient.fallbackfactory.UserCenterFeignClientFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
         fallbackFactory = UserCenterFeignClientFallbackFactory.class//,
 //        configuration = TokenRelayRequestInterceptor.class
 )
-public interface UserCenterFeignClient {
+public interface UserCenterFeignClient extends UserService{
 
     /**
      * http://user-center/users/{id}
@@ -28,6 +29,7 @@ public interface UserCenterFeignClient {
      * @param id
      * @return
      */
+    @Override
     @GetMapping("/users/{id}")
     UserDTO findById(@PathVariable("id") Integer id);
 }

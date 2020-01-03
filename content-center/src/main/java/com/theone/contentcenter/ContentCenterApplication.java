@@ -8,6 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -15,6 +16,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @author liuyu
  */
 @MapperScan("com.theone.contentcenter.dao")
+@ComponentScan(basePackages = {"com.theone"})
 @SpringBootApplication
 @EnableFeignClients
 @EnableBinding(Source.class)

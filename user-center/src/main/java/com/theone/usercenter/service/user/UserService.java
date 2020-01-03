@@ -46,7 +46,7 @@ public class UserService {
                 user = User.builder()
                       .wxId(openid)
                       .avatarUrl(loginDTO.getAvatarUrl())
-                      .wxNickname(loginDTO.getNickName())
+                      .wxNickname(loginDTO.getWxNickName())
                       .createTime(new Date())
                       .updateTime(new Date())
                       .bonus(300)

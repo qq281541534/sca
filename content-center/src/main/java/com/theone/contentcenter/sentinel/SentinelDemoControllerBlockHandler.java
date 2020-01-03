@@ -1,7 +1,7 @@
 package com.theone.contentcenter.sentinel;
 
 import com.alibaba.csp.sentinel.slots.block.BlockException;
-import com.theone.contentcenter.domain.dto.user.UserDTO;
+import com.theone.apimodel.dto.UserDTO;
 import lombok.extern.slf4j.Slf4j;
 
 /**

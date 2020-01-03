@@ -46,6 +46,8 @@ spring:
             destination: add-bonus
   zipkin:
     base-url: http://localhost:9411/
+    # 是否开启向zipkin发送调用链日志。 本地调试时设置false
+    enabled: false
   sleuth:
     sampler:
       # 抽样率，默认是0.1=10%

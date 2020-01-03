@@ -25,5 +25,5 @@ public class UserLoginDTO {
     /**
      * 昵称
      */
-    private String nickName;
+    private String wxNickName;
 }

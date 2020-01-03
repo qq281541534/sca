@@ -1,0 +1,6 @@
+/Users/liuyu/tools/idea-workspace/spring-cloud-alibaba-demo/projects/sca/commons/src/main/java/com/theone/common/auth/CheckLogin.java
+/Users/liuyu/tools/idea-workspace/spring-cloud-alibaba-demo/projects/sca/commons/src/main/java/com/theone/common/component/RespBody.java
+/Users/liuyu/tools/idea-workspace/spring-cloud-alibaba-demo/projects/sca/commons/src/main/java/com/theone/common/auth/GlobalExceptionErrorHandler.java
+/Users/liuyu/tools/idea-workspace/spring-cloud-alibaba-demo/projects/sca/commons/src/main/java/com/theone/common/auth/CheckAuthorization.java
+/Users/liuyu/tools/idea-workspace/spring-cloud-alibaba-demo/projects/sca/commons/src/main/java/com/theone/common/auth/AuthAspect.java
+/Users/liuyu/tools/idea-workspace/spring-cloud-alibaba-demo/projects/sca/commons/src/main/java/com/theone/common/utils/JwtOperator.java

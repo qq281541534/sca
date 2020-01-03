@@ -7,7 +7,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.context.ContextUtil;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.nacos.client.utils.StringUtils;
-import com.theone.contentcenter.domain.dto.user.UserDTO;
+import com.theone.apimodel.dto.UserDTO;
 import com.theone.contentcenter.sentinel.SentinelDemoControllerBlockHandler;
 import com.theone.contentcenter.sentinel.SentinelDemoControllerFallback;
 import lombok.extern.slf4j.Slf4j;

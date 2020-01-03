@@ -1,6 +1,6 @@
 package com.theone.contentcenter.controller.content;
 
-import com.theone.contentcenter.auth.CheckAuthorization;
+import com.theone.common.auth.CheckAuthorization;
 import com.theone.contentcenter.domain.dto.content.ShareAuditDTO;
 import com.theone.contentcenter.domain.entity.content.Share;
 import com.theone.contentcenter.service.content.ShareService;

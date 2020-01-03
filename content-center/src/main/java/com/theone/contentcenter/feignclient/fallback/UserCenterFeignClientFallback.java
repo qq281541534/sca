@@ -1,6 +1,6 @@
 package com.theone.contentcenter.feignclient.fallback;
 
-import com.theone.contentcenter.domain.dto.user.UserDTO;
+import com.theone.apimodel.dto.UserDTO;
 import com.theone.contentcenter.feignclient.UserCenterFeignClient;
 import org.springframework.stereotype.Component;
 
