@@ -1,6 +1,6 @@
 package com.theone.contentcenter.feignclient;
 
-import com.theone.apimodel.service.UserServiceApi;
+import com.theone.apimodel.http.UserServiceApi;
 import com.theone.contentcenter.feignclient.fallbackfactory.UserCenterFeignClientFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 

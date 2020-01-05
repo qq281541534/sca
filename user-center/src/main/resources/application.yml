@@ -9,9 +9,6 @@ spring:
       # >= 6.x com.mysql.cj.jdbc.Driver
       # <= 5.x com.mysql.jdbc.Driver
       driver-class-name: com.mysql.cj.jdbc.Driver
-  application:
-    # 服务名称用-划线，不要用_ 或者特殊字符
-    name: user-center
   cloud:
     nacos:
       discovery:
@@ -72,16 +69,16 @@ mybatis:
     # 开启mybatis xml中数据库字段"_"映射到java对象中的"驼峰式"属性
     map-underscore-to-camel-case: true
 
-
-# 连字符
----
-# profile=dev的专用属性，也就是开发环境下的专用属性
-spring:
-  profiles: dev
-
----
-# profile=prod的专用属性，也就是生产环境下的专用属性
-spring:
-  profiles: prod
-server:
-  port: 8088
+# spring boot区分环境的方式:
+## 连字符
+#---
+## profile=dev的专用属性，也就是开发环境下的专用属性
+#spring:
+#  profiles: dev
+#
+#---
+## profile=prod的专用属性，也就是生产环境下的专用属性
+#spring:
+#  profiles: prod
+#server:
+#  port: 8088

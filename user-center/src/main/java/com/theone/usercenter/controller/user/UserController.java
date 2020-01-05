@@ -3,7 +3,7 @@ package com.theone.usercenter.controller.user;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import com.theone.apimodel.dto.UserDTO;
-import com.theone.apimodel.service.UserServiceApi;
+import com.theone.apimodel.http.UserServiceApi;
 import com.theone.common.auth.CheckLogin;
 import com.theone.common.utils.JwtOperator;
 import com.theone.usercenter.domain.dto.user.JwtTokenRespDTO;

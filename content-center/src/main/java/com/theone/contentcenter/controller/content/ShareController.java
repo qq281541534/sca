@@ -71,7 +71,7 @@ public class ShareController {
         return shareService.exchangeById(id, request);
     }
 
-    @Value("${my.configuration}")
+    @Value("${my.configuration:test1}")
     private String myConfiguration;
 
     @GetMapping("/test-config")

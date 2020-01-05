@@ -1,4 +1,4 @@
-package com.theone.apimodel.service;
+package com.theone.apimodel.http;
 
 import com.theone.apimodel.dto.UserDTO;
 import org.springframework.web.bind.annotation.GetMapping;

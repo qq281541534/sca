@@ -4,8 +4,8 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
-        namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
   application:
-    name: content-center
+      # 服务名称用-划线，不要用_ 或者特殊字符
+      name: user-center
   profiles:
     active: prod

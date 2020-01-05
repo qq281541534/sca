@@ -114,5 +114,3 @@ mybatis:
     # 开启mybatis xml中数据库字段"_"映射到java对象中的"驼峰式"属性
     map-underscore-to-camel-case: true
 
-my:
-  configuration: test
