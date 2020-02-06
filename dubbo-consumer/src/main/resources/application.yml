@@ -1,0 +1,36 @@
+server:
+  port: 8099
+dubbo:
+  # Dubbo服务暴露的协议配置，其中子属性name为协议名称，port为协议端口（-1 表示自增端口，从 20880 开始）
+  protocol:
+    name: dubbo
+    port: -1
+  # Dubbo 服务注册中心配置，其中子属性address 的值 "spring-cloud://192.168.44.129"，说明挂载到 Spring Cloud 注册中心
+  registry:
+    address: spring-cloud://127.0.0.1
+  cloud:
+      # 表示要订阅服务的服务名，可以配置'*'，代表订阅所有服务，不推荐使用。若需订阅多应用，使用 "," 分割。
+      subscribed-services: user-center
+spring:
+  application:
+    # Spring 应用名称，用于 Spring Cloud 服务注册和发现。该值在 Dubbo Spring Cloud 加持下被视作dubbo.application.name，因此，无需再显示地配置dubbo.application.name。
+    name: dubbo-spring-cloud-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        # 指定namespace，用于不同的环境隔离
+        namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
+        # 指定集群名称
+        cluster-name: BJ
+  zipkin:
+      base-url: http://localhost:9411/
+      # 是否开启向zipkin发送调用链日志。 本地调试时设置false
+      enabled: true
+  sleuth:
+    sampler:
+      # 抽样率，默认是0.1=10%
+      probability: 1.0
+  main:
+    # 在 Spring Boot 2.1 以及更高的版本增加该设定，因为 Spring Boot 默认调整了 Bean 定义覆盖行为。
+    allow-bean-definition-overriding: true

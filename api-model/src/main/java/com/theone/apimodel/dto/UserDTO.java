@@ -2,13 +2,14 @@ package com.theone.apimodel.dto;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author liuyu
  */
 @Data
-public class UserDTO {
+public class UserDTO implements Serializable {
     /**
      * Id
      */

@@ -36,7 +36,7 @@ spring:
   zipkin:
     base-url: http://localhost:9411/
     # 是否开启向zipkin发送调用链日志。 本地调试时设置false
-    enabled: false
+    enabled: true
   sleuth:
     sampler:
       # 抽样率，默认是0.1=10%
@@ -68,6 +68,18 @@ mybatis:
   configuration:
     # 开启mybatis xml中数据库字段"_"映射到java对象中的"驼峰式"属性
     map-underscore-to-camel-case: true
+dubbo:
+  scan:
+    # 指定 Dubbo 服务实现类的扫描基准包
+    base-packages: com.theone.usercenter.service.user
+  # Dubbo服务暴露的协议配置，其中子属性name为协议名称，port为协议端口（-1 表示自增端口，从 20880 开始）
+  protocol:
+    name: dubbo
+    port: -1
+  # Dubbo 服务注册中心配置，其中子属性address 的值 "spring-cloud://192.168.44.129"，说明挂载到 Spring Cloud 注册中心
+  registry:
+    address: spring-cloud://127.0.0.1
+
 
 # spring boot区分环境的方式:
 ## 连字符

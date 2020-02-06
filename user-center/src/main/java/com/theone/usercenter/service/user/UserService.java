@@ -1,6 +1,7 @@
 package com.theone.usercenter.service.user;
 
 import com.theone.apimodel.dto.UserDTO;
+import com.theone.apimodel.rpc.UserServiceApi;
 import com.theone.usercenter.dao.bouns.BounsEventLogMapper;
 import com.theone.usercenter.dao.user.UserMapper;
 import com.theone.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
@@ -9,23 +10,27 @@ import com.theone.usercenter.domain.entity.bouns.BounsEventLog;
 import com.theone.usercenter.domain.entity.user.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
 /**
+ * 用户服务
+ * 提供RPC服务，@Service 不是org.springframework.stereotype.Service, 是dubbo包下org.apache.dubbo.config.annotation.Service
+ *
  * @author liuyu
  */
 @Slf4j
-@Service
 @RequiredArgsConstructor
-public class UserService {
+@Service
+public class UserService implements UserServiceApi {
 
     private final UserMapper userMapper;
     private final BounsEventLogMapper bounsEventLogMapper;
 
+    @Override
     public UserDTO findById(Integer id){
         User user = this.userMapper.selectByPrimaryKey(id);
         UserDTO userDTO = new UserDTO();
