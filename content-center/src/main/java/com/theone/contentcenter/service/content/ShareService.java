@@ -45,6 +45,8 @@ public class ShareService {
     private final RocketmqTransactionLogMapper rocketmqTransactionLogMapper;
     private final Source source;
     private final MidUserShareMapper midUserShareMapper;
+//    @Reference
+//    private UserServiceApi userServiceApi;
 
     /**
      * 通过ID查询分享
@@ -58,7 +60,10 @@ public class ShareService {
 
         // 通过share中的userid获取用户信息
         Integer userId = share.getUserId();
+        // 基于feign实现http调用
         UserDTO userDTO = this.userCenterFeignClient.findById(userId);
+        // 基于DUBBO实现RPC
+//        UserDTO userDTO = userServiceApi.findById(userId);
 
         // 填充shareDTO
         ShareDTO shareDTO = new ShareDTO();
