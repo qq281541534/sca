@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="consumer" />
+        <module name="content-center" />
+        <module name="dubbo-consumer" />
+        <module name="gateway" />
+        <module name="user-center" />
+      </profile>
+      <profile name="Annotation profile for sca" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-model" />
+        <module name="commons" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="api-model" target="1.8" />
+      <module name="commons" target="1.8" />
+      <module name="consumer" target="1.8" />
+      <module name="content-center" target="1.8" />
+      <module name="dubbo-consumer" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="sca" target="1.8" />
+      <module name="user-center" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
