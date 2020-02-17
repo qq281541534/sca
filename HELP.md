@@ -1,16 +1,18 @@
 # Getting Started
 
-## 项目启动总结
-﻿
-### 一、nacos
+## 启动环境
 
-- 目录：tools/idea-workspace/spring-cloud-alibaba-demo/nacos/distribution/target/nacos-server-1.1.4/nacos
+### 一、nacos docker启动
 
-- 启动命令：``` bin/startup.sh -m standalone ```
+- 目录：tools/idea-workspace/spring-cloud-alibaba-demo/nacos-docker
+
+- 启动命令：
+    ``` docker-compose -f example/standalone-derby.yaml up -d ```
 - 地址：
     > [登陆http://127.0.0.1:8848/nacos/#/login](http://127.0.0.1:8848/nacos/#/login)用户名密码：nacos
 
-- 停止命令：```  bin/shutdown.sh ```
+- 停止命令：
+    ```  docker-compose -f example/standalone-derby.yaml down ```
 
 ### 二、sentinel
 
@@ -79,7 +81,16 @@
 - 地址：http://localhost:9411/
 
 
+### 七、启动mysql
 
+- 目录：/Users/liuyu/apps/docker-apps/mysql
+
+- 启动命令：```sh start.sh```
+
+- 停止命令： ``` docker stop `docker ps -a | grep mysql |awk '{print $1}'` ```
+
+
+## 启动项目
 
 
 

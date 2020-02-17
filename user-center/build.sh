@@ -2,7 +2,8 @@
 
 mvn package -DskipTests
 
-docker build -t 127.0.0.1:8850/sca/gateway:latest .
+docker build -t 127.0.0.1:8850/sca/user-center:latest .
 
 
-#docker run --name sca-gateway -itd -p 8040:8040 127.0.0.1:8850/sca/gateway:latest  --nacos.address=192.168.0.103
+#docker run --name sca-user-center -itd 127.0.0.1:8850/sca/user-center:latest \
+# --nacos.address=192.168.0.103 --zipkin.address=192.168.0.103 --rocketmq.address=192.168.0.103 --mysql.address=192.168.0.103

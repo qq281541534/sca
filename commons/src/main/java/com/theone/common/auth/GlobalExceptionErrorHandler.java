@@ -28,7 +28,7 @@ public class GlobalExceptionErrorHandler {
     @ExceptionHandler(SecurityException.class)
     public ResponseEntity<RespBody> error(SecurityException e) {
 
-        return new ResponseEntity<>(
+        return new ResponseEntity(
                 RespBody.builder()
                         .status(1)
                         .msg("请先登陆")

@@ -2,7 +2,7 @@ server:
   port: 8091
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/content_center
+    url: jdbc:mysql://${mysql.address}:3306/content_center
     hikari:
       username: root
       password: 123456
@@ -13,9 +13,9 @@ spring:
       nacos:
         discovery:
           # 指定nacos server地址
-          server-addr: 127.0.0.1:8848
+          server-addr: ${nacos.address}:8848
           # 指定namespace，用于不同的环境隔离
-          namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
+          namespace: 5fae1311-e569-4b1f-8411-3cedeae9544e
           # 指定集群名称
           cluster-name: BJ
           metadata:
@@ -29,11 +29,11 @@ spring:
           enabled: true
         transport:
           # 指定sentinel控制台的地址
-          dashboard: localhost:8080
+          dashboard: ${sentinel.dashboard.address}:8080
       stream:
         rocketmq:
           binder:
-            name-server: 127.0.0.1:9876
+            name-server: ${rocketmq.address}:9876
           bindings:
             # 默认的Source类中的channel,作为生产者使用事务必须在这里配置group
             output:
@@ -45,7 +45,7 @@ spring:
             # 用来指定topic
             destination: add-bonus
   zipkin:
-    base-url: http://localhost:9411/
+    base-url: http://${zipkin.address}:9411/
     # 是否开启向zipkin发送调用链日志。 本地调试时设置false
     enabled: false
   sleuth:

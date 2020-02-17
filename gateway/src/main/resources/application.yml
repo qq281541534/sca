@@ -6,8 +6,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
-        namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
+        server-addr: ${nacos.address}:8848
+        namespace: 5fae1311-e569-4b1f-8411-3cedeae9544e
     gateway:
       discovery:
         locator:
@@ -32,11 +32,12 @@ spring:
 #            # 自定义过滤器，打印日志 key=a, value=b
 #            - PreLog=a, b
   zipkin:
-    base-url: http://localhost:9411/
+    base-url: http://${zipkin.address}:9411/
   sleuth:
     sampler:
       # 抽样率，默认是0.1=10%
       probability: 1.0
+    enabled: false
 management:
   endpoints:
     web:
