@@ -2,7 +2,7 @@ version: "3"
 
 services:
   gateway:
-    image: 127.0.0.1:8850/sca/gateway:0.0.1-SNAPSHOT
+    image: hub.harbor.com:8850/sca/gateway:0.0.1-SNAPSHOT
     command:
       - "--nacos.address=192.168.0.103"
       - "--zipkin.address=192.168.0.103"
@@ -11,7 +11,7 @@ services:
     restart: always
 
   user-center:
-    image: 127.0.0.1:8850/sca/user-center:0.0.1-SNAPSHOT
+    image: hub.harbor.com:8850/sca/user-center:0.0.1-SNAPSHOT
     command:
       - "--nacos.address=192.168.0.103"
       - "--zipkin.address=192.168.0.103"
@@ -20,7 +20,7 @@ services:
     restart: always
 
   content-center:
-    image: 127.0.0.1:8850/sca/content-center:0.0.1-SNAPSHOT
+    image: hub.harbor.com:8850/sca/content-center:0.0.1-SNAPSHOT
     command:
       - "--nacos.address=192.168.0.103"
       - "--zipkin.address=192.168.0.103"
@@ -30,7 +30,7 @@ services:
     restart: always
 
   dubbo-consumer:
-    image: 127.0.0.1:8850/sca/dubbo-consumer:0.0.1-SNAPSHOT
+    image: hub.harbor.com:8850/sca/dubbo-consumer:0.0.1-SNAPSHOT
     command:
       - "--nacos.address=192.168.0.103"
       - "--zipkin.address=192.168.0.103"
