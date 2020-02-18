@@ -93,6 +93,12 @@
 ## 启动项目
 
 
+- 删除sca的容器：
+```
+docker rm `docker ps -a | grep sca |awk '{print $1}'`
+```
+
+
 
 
 

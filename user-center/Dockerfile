@@ -1,8 +1,9 @@
 FROM 127.0.0.1:8850/library/java
 MAINTAINER TheOne 281541534@qq.com
 
-COPY target/user-center-0.0.1-SNAPSHOT.jar /usr/src/myapp/user-center.jar
+ARG JAR_FILE
+COPY target/${JAR_FILE} /app.jar
 
-WORKDIR /usr/src/myapp
+WORKDIR /
 
-ENTRYPOINT ["java", "-jar", "user-center.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

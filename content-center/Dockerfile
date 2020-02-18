@@ -1,8 +1,9 @@
 FROM 127.0.0.1:8850/library/java
 MAINTAINER TheOne 281541534@qq.com
 
-COPY target/content-center-0.0.1-SNAPSHOT.jar /usr/src/myapp/content-center.jar
+ARG JAR_FILE
+COPY target/${JAR_FILE} /app.jar
 
-WORKDIR /usr/src/myapp
+WORKDIR /
 
-ENTRYPOINT ["java", "-jar", "content-center.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
