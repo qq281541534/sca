@@ -79,6 +79,10 @@ dubbo:
   # Dubbo 服务注册中心配置，其中子属性address 的值 "spring-cloud://192.168.44.129"，说明挂载到 Spring Cloud 注册中心
   registry:
     address: spring-cloud://${nacos.address}
+  cloud:
+    # 不需要订阅其他服务则设置false
+    subscribed-services: false
+
 
 
 # spring boot区分环境的方式:
