@@ -98,7 +98,7 @@
 
 - 停止命令：``` docker-compose stop ```
 
-- 地址： http://127.0.0.1:8850/harbor/projects/2/members
+- 地址： http://hub.harbor.com:8850/harbor/projects/2/members
 
 
 ## 启动项目
