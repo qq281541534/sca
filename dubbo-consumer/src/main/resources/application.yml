@@ -14,7 +14,7 @@ dubbo:
 spring:
   application:
     # Spring 应用名称，用于 Spring Cloud 服务注册和发现。该值在 Dubbo Spring Cloud 加持下被视作dubbo.application.name，因此，无需再显示地配置dubbo.application.name。
-    name: dubbo-spring-cloud-consumer
+    name: dubbo-consumer
   cloud:
     nacos:
       discovery:
