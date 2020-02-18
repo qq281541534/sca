@@ -15,7 +15,7 @@ spring:
           # 指定nacos server地址
           server-addr: ${nacos.address}:8848
           # 指定namespace，用于不同的环境隔离
-          namespace: 5fae1311-e569-4b1f-8411-3cedeae9544e
+#          namespace: 5fae1311-e569-4b1f-8411-3cedeae9544e
           # 指定集群名称
           cluster-name: BJ
           metadata:

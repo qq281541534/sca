@@ -4,7 +4,7 @@ spring:
       config:
         server-addr: ${nacos.address}:8848
         file-extension: yaml
-        namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
+#        namespace: 390c240c-000a-4d84-8d19-298cc77f86d3
   application:
     name: content-center
   profiles:
