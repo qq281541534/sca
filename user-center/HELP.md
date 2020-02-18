@@ -19,7 +19,7 @@
 2.mvn deploy 会执行 ``dockerfile:push`` 命令
 ```
 # mvn deploy会直接push，但是有个bug暂时没解决
-docker push hub.harbor.com:8850/sca/user-centent:0.0.1-SNAPSHOT
+docker push hub.harbor.com:8850/sca/user-center:0.0.1-SNAPSHOT
 ```
 
 3.运行镜像

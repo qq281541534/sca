@@ -1,15 +1,6 @@
 version: "3"
 
 services:
-  gateway:
-    image: hub.harbor.com:8850/sca/gateway:0.0.1-SNAPSHOT
-    command:
-      - "--nacos.address=192.168.0.103"
-      - "--zipkin.address=192.168.0.103"
-    ports:
-      - 8040:8040
-    restart: always
-
   user-center:
     image: hub.harbor.com:8850/sca/user-center:0.0.1-SNAPSHOT
     command:
@@ -27,6 +18,8 @@ services:
       - "--rocketmq.address=192.168.0.103"
       - "--mysql.address=192.168.0.103"
       - "--sentinel.dashboard.address=192.168.0.103"
+    links:
+      - user-center
     restart: always
 
   dubbo-consumer:
@@ -36,4 +29,18 @@ services:
       - "--zipkin.address=192.168.0.103"
     ports:
       - 8099:8099
+    links:
+      - user-center
+    restart: always
+
+  gateway:
+    image: hub.harbor.com:8850/sca/gateway:0.0.1-SNAPSHOT
+    command:
+      - "--nacos.address=192.168.0.103"
+      - "--zipkin.address=192.168.0.103"
+    ports:
+      - 8040:8040
+    links:
+      - user-center
+      - content-center
     restart: always
