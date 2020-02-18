@@ -90,7 +90,24 @@
 - 停止命令： ``` docker stop `docker ps -a | grep mysql |awk '{print $1}'` ```
 
 
+### 八、启动harbor
+
+- 目录a：pps/harbor
+
+- 启动命令：``` docker-compose start ``` 
+
+- 停止命令：``` docker-compose stop ```
+
+- 地址： http://127.0.0.1:8850/harbor/projects/2/members
+
+
 ## 启动项目
+
+1. docker-compose启/停
+```$xslt
+启动：docker-compose up -d
+停止：docker-compose down
+```
 
 
 - 删除sca的容器：
