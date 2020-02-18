@@ -83,7 +83,7 @@
 
 ### 七、启动mysql
 
-- 目录：/Users/liuyu/apps/docker-apps/mysql
+- 目录：apps/docker-apps/mysql
 
 - 启动命令：```sh start.sh```
 
