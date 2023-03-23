@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  *      feign.client.config.{feignClientName}.requestInterceptors=com.theone.contentcenter.feignclient.interceptor.TokenRelayRequestInterceptor
  *   b.在对应的@FeignClient类的注解中加入configuration
  *
+ * @author liuyu
  */
 @Component
 public class TokenRelayRequestInterceptor implements RequestInterceptor {
